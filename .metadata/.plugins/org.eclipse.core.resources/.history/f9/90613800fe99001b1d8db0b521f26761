@@ -58,25 +58,8 @@ public class MySQLDatosDAO implements DatosDAO {
 	}
 
 	@Override
-	public void eliminar(Datos a) throws DAOException {
-		PreparedStatement stat =null;
-		try {
-			stat=conn.prepareStatement(DELETE);
-			stat.setString(1, a.getDni());
-			if (stat.executeUpdate() == 0) {
-				throw new DAOException("Puede que no se haya guardado");
-			}
-		} catch (SQLException e) {
-			throw new DAOException("Error sql", e);
-		}finally {
-			if(stat !=null) {
-				try {
-					stat.close();
-				} catch (SQLException e) {
-					throw new DAOException("Error cerrando conexion", e);
-				}
-			}
-		}
+	public void eliminar(Datos a) {
+		// TODO Auto-generated method stub
 
 	}
 
