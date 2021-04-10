@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fp.dao.DatosDAO;
@@ -29,9 +28,9 @@ public class MySQLDatosDAO implements DatosDAO {
 
 	@Override
 	public void insertar(Datos a) throws DAOException {
-		PreparedStatement stat = null;
+		PreparedStatement stat =null;
 		try {
-			stat = conn.prepareStatement(INSERT);
+			stat=conn.prepareStatement(INSERT);
 			stat.setString(1, a.getDni());
 			stat.setString(2, a.getNombre());
 			stat.setDate(3, new Date(a.getFecha_nacimiento().getTime()));
@@ -42,8 +41,8 @@ public class MySQLDatosDAO implements DatosDAO {
 			}
 		} catch (SQLException e) {
 			throw new DAOException("Error sql", e);
-		} finally {
-			if (stat != null) {
+		}finally {
+			if(stat !=null) {
 				try {
 					stat.close();
 				} catch (SQLException e) {
@@ -61,17 +60,17 @@ public class MySQLDatosDAO implements DatosDAO {
 
 	@Override
 	public void eliminar(Datos a) throws DAOException {
-		PreparedStatement stat = null;
+		PreparedStatement stat =null;
 		try {
-			stat = conn.prepareStatement(DELETE);
+			stat=conn.prepareStatement(DELETE);
 			stat.setString(1, a.getDni());
 			if (stat.executeUpdate() == 0) {
 				throw new DAOException("Puede que no se haya guardado");
 			}
 		} catch (SQLException e) {
 			throw new DAOException("Error sql", e);
-		} finally {
-			if (stat != null) {
+		}finally {
+			if(stat !=null) {
 				try {
 					stat.close();
 				} catch (SQLException e) {
@@ -88,81 +87,22 @@ public class MySQLDatosDAO implements DatosDAO {
 		Date fecha_nacimiento = rs.getDate("fecha_nacimiento");
 		double renta_anual = rs.getDouble("renta_anual");
 		int numero_miembros_familiares = rs.findColumn("numero_miembros_familiares");
-		Datos datos = new Datos(dni, nombre, fecha_nacimiento, renta_anual, numero_miembros_familiares);
-
+		Datos datos = new Datos(dni,nombre,fecha_nacimiento,renta_anual,numero_miembros_familiares);
+		
 		return datos;
-
+		
+	}
+	
+	@Override
+	public List<Datos> obtener_todos() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public List<Datos> obtener_todos() throws DAOException {
-		PreparedStatement stat = null;
-		ResultSet rs = null;
-		List<Datos> datos = new ArrayList<>();
-		try {
-			stat = conn.prepareStatement(GETALL);
-			rs = stat.executeQuery();
-			while(rs.next()) {
-				datos.add(convertir(rs));
-			}
-		} catch (SQLException e) {
-			throw new DAOException("Error sql", e);
-		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					throw new DAOException("Error cerrando conexion", e);
-				}
-			}
-			if (stat != null) {
-				try {
-					stat.close();
-				} catch (SQLException e) {
-					throw new DAOException("Error cerrando conexion", e);
-				}
-			}
-		}
-		return datos;
-	}
-
-	@Override
-	public Datos obtener(String pk) throws DAOException {
-		PreparedStatement stat = null;
-		ResultSet rs = null;
-		Datos datos = null;
-		try {
-			stat = conn.prepareStatement(GETONE);
-			stat.setString(1, pk);
-			rs = stat.executeQuery();
-			if (rs.next()) {
-				datos = convertir(rs);
-			} else {
-				throw new DAOException("No se ha encontrado ese registro");
-			}
-			if (stat.executeUpdate() == 0) {
-				throw new DAOException("Puede que no se haya guardado");
-			}
-		} catch (SQLException e) {
-			throw new DAOException("Error sql", e);
-		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					throw new DAOException("Error cerrando conexion", e);
-				}
-			}
-			if (stat != null) {
-				try {
-					stat.close();
-				} catch (SQLException e) {
-					throw new DAOException("Error cerrando conexion", e);
-				}
-			}
-		}
-
-		return datos;
+	public Datos obtener(String pk) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
