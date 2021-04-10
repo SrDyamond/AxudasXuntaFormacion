@@ -1,0 +1,7 @@
+package com.fp.dao;
+
+import com.fp.modelo.Solicitud_libros;
+
+public interface Solicitud_librosDAO extends DAO<Solicitud_libros, int> {
+
+}

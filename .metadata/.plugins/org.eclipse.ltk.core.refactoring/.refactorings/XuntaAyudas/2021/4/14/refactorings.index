@@ -1,0 +1,31 @@
+1618049351783	Delete element
+1618051631047	Rename type 'Datos_solicitante'
+1618051976922	Rename type 'FactoryDAO'
+1618052113001	Copy compilation unit
+1618052324812	Delete element
+1618052704380	Copy compilation unit
+1618052733569	Rename type 'Datos_solicitanteDAO'
+1618052755192	Copy compilation unit
+1618052779519	Copy compilation unit
+1618053073612	Copy compilation unit
+1618053086852	Delete element
+1618053141599	Delete element
+1618053179028	Delete element
+1618053208288	Rename package 'com.fp.mysql'
+1618053215530	Delete element
+1618053402024	Rename type 'Ayuda_cuantiaDAO'
+1618053414546	Rename type 'Ayudas_xuntaDAO'
+1618053425107	Rename type 'Solicitud_dependenciasDAO'
+1618053436277	Rename type 'Solicitud_librosDAO'
+1618053445672	Rename type 'Ayuda_cuantia'
+1618053453497	Rename type 'Ayudas_xunta'
+1618053462179	Rename type 'Solicitud_dependencias'
+1618053472519	Rename type 'Solicitud_libros'
+1618054351435	Rename type 'MySQLSolicitudDependencias'
+1618054418320	Rename type 'MySQLAyudasXuntaDAO'
+1618054437710	Rename type 'MySQLAyudasXunta'
+1618054445000	Rename type 'MySQLAyudaCuantia'
+1618054791614	Rename local variable 'dni'
+1618058539468	Rename field 'renta_actual'
+1618058550821	Rename local variable 'renta_actual'
+1618058568843	Rename local variable 'renta_actual'

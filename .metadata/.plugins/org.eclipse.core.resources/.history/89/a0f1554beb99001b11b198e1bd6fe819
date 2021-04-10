@@ -1,0 +1,9 @@
+package com.fp.dao;
+
+import java.util.List;
+
+import com.fp.modelo.Datos;
+
+public interface Datos_solicitanteDAO extends DAO<Datos, String> {
+
+}

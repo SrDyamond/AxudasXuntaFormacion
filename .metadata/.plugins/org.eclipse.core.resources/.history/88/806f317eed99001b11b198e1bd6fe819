@@ -1,0 +1,5 @@
+package com.fp.dao.mysql;
+
+public class MySQLDatosDAO {
+
+}

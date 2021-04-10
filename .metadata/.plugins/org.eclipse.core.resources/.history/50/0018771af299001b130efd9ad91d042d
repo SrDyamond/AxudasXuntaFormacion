@@ -1,0 +1,11 @@
+package com.fp.mysql.dao;
+
+import java.util.List;
+
+import com.fp.dao.SolicitudLibrosDAO;
+import com.fp.modelo.SolicitudLibros;
+
+public class MySQLSolicitudLibrosDAO implements SolicitudLibrosDAO{
+
+	
+}

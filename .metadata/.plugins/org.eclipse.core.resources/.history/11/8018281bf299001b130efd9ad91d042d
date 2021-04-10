@@ -1,0 +1,12 @@
+package com.fp.mysql.dao;
+
+import java.util.List;
+
+import com.fp.dao.SolicitudDependenciasDAO;
+import com.fp.modelo.SolicitudDependencias;
+
+public class MySQLSolicitudDependenciasDAO implements SolicitudDependenciasDAO{
+
+
+
+}

@@ -1,0 +1,5 @@
+package com.fp.dao;
+
+public interface Ayuda_cuantiaDAO {
+
+}

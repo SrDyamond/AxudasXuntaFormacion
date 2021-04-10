@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\Users\dyang\OneDrive\Escritorio\IndraEclipse\AxudasXuntaFormacion\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\661705564.index
+\XunatAyudasLP\src\main\java
+C:\Users\dyang\OneDrive\Escritorio\IndraEclipse\AxudasXuntaFormacion\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\973526798.index
+\AplicacionAyudaXunta\src\main\java

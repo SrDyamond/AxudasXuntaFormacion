@@ -1,0 +1,5 @@
+package com.fp.mysql.dao;
+
+public class MySQLAyudaCuantia {
+
+}

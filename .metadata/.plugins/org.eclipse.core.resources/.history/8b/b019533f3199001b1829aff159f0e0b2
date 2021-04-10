@@ -1,0 +1,66 @@
+package com.fp.conecctioncom.fp.ayudas.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class GenericDAO {
+
+	private static final String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";
+	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/xunta_galicia_axudas";
+	private static final String USERNAME = "root";
+	private static final String PASSWORD = "3270Clb20616!";
+
+	public GenericDAO() {
+
+	}
+
+	// init connection object
+	private Connection connection;
+	Connection conn = null;
+
+	// connect database
+	public Connection connect() {
+		if (connection == null) {
+			try {
+				Class.forName(DATABASE_DRIVER);
+				connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
+				System.out.println("Database Connected");
+				//PreparedStatement ps = null;
+				//Statement s = conn.createStatement();
+				//ResultSet rs = s.executeQuery("Select * from datos");
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+				System.out.println("Database Error");
+			}
+		}
+		return connection;
+	}
+	//read database
+	public void read() {
+		try {
+			PreparedStatement ps = null;
+			Statement s = conn.createStatement();
+			ResultSet rs = s.executeQuery("Select * from datos");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Database Error");
+		}
+	}
+
+	// disconnect database
+	public void disconnect() {
+		if (connection != null) {
+			try {
+				connection.close();
+				connection = null;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

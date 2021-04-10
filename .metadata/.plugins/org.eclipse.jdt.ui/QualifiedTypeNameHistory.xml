@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+    <fullyQualifiedTypeName name="java.beans.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.fp.modelo.Datos_solicitante"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.fp.modelo.Ayuda_cuantia"/>
+    <fullyQualifiedTypeName name="com.fp.modelo.Solicitud_dependencias"/>
+    <fullyQualifiedTypeName name="com.fp.modelo.Solicitud_libros"/>
+    <fullyQualifiedTypeName name="com.fp.dao.DatosDAO"/>
+    <fullyQualifiedTypeName name="com.fp.dao.AyudaCuantiaDAO"/>
+    <fullyQualifiedTypeName name="com.fp.dao.AyudasXuntaDAO"/>
+    <fullyQualifiedTypeName name="com.fp.dao.SolicitudDependenciasDAO"/>
+    <fullyQualifiedTypeName name="com.fp.dao.SolicitudLibrosDAO"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.fp.exceptions.DAOException"/>
+</qualifiedTypeNameHistroy>

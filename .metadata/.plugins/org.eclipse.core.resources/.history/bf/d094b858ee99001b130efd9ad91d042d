@@ -1,0 +1,8 @@
+package com.fp.dao;
+
+import com.fp.modelo.Ayudas_xunta;
+
+public interface AyudasXuntaDAO extends DAO<Ayudas_xunta, Long>{
+	
+
+}

@@ -1,0 +1,8 @@
+package com.fp.dao;
+
+import com.fp.modelo.Solicitud_dependencias;
+
+public interface Solicitud_dependenciasDAO extends DAO<Solicitud_dependencias, Long>{
+	
+
+}

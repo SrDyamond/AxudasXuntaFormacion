@@ -1,0 +1,8 @@
+package com.fp.dao;
+
+import com.fp.modelo.Ayuda_cuantia;
+
+public interface AyudaCuantiaDAO extends DAO<Ayuda_cuantia, Long>{
+	
+
+}
