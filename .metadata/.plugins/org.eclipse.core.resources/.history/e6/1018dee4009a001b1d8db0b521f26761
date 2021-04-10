@@ -87,9 +87,8 @@ public class MySQLDatosDAO implements DatosDAO {
 		Date fecha_nacimiento = rs.getDate("fecha_nacimiento");
 		double renta_anual = rs.getDouble("renta_anual");
 		int numero_miembros_familiares = rs.findColumn("numero_miembros_familiares");
-		Datos datos = new Datos(dni,nombre,fecha_nacimiento,renta_anual,numero_miembros_familiares);
 		
-		return datos;
+		return null;
 		
 	}
 	

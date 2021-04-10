@@ -51,18 +51,18 @@ public class Datos {
 		this.renta_anual = renta_anual;
 	}
 
-	public int getNumero_miembros_familiares() {
-		return numero_miembros_familiares;
+	public int getNumero_mienbros_familiares() {
+		return numero_mienbros_familiares;
 	}
 
-	public void setNumero_miembros_familiares(int numero_miembros_familiares) {
-		this.numero_miembros_familiares = numero_miembros_familiares;
+	public void setNumero_mienbros_familiares(int numero_mienbros_familiares) {
+		this.numero_mienbros_familiares = numero_mienbros_familiares;
 	}
 
 	@Override
 	public String toString() {
 		return "Datos_solicitante [dni=" + dni + ", nombre=" + nombre + ", fecha_nacimiento=" + fecha_nacimiento
-				+ ", renta_anual=" + renta_anual + ", numero_mienbros_familiares=" + numero_miembros_familiares + "]";
+				+ ", renta_anual=" + renta_anual + ", numero_mienbros_familiares=" + numero_mienbros_familiares + "]";
 	}
 
 }
