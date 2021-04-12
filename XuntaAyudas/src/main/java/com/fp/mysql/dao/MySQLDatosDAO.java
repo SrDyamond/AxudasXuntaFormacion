@@ -8,7 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
+import com.fp.connection.DatabaseConnection;
 import com.fp.dao.DatosDAO;
 import com.fp.exceptions.DAOException;
 import com.fp.modelo.Datos;
@@ -20,19 +22,28 @@ public class MySQLDatosDAO implements DatosDAO {
 	final String DELETE = "DELETE FROM datos_solicitante WHERE dni = ?";
 	final String GETALL = "SELECT dni, nombre, fecha_nacimiento, renta_anual, numero_miembros_familiares FROM datos_solicitante";
 	final String GETONE = "SELECT dni, nombre, fecha_nacimiento, renta_anual, numero_miembros_familiares FROM datos_solicitante WHERE dni = ?";
+	//private static final Logger logger = Logger.getLogger(MySQLDatosDAO.class);
 
 	private Connection conn;
-
+	
+	DatabaseConnection DatabaseConnection = new DatabaseConnection();
+	
 	public MySQLDatosDAO(Connection conn) {
 		super();
 		this.conn = conn;
 	}
+	
+	public MySQLDatosDAO() {
+		super();
+	}
+	
 
 	@Override
 	public void insertar(Datos a) throws DAOException {
+
 		PreparedStatement stat = null;
 		try {
-			stat = conn.prepareStatement(INSERT);
+			stat =DatabaseConnection.connect().prepareStatement(INSERT);
 			stat.setString(1, a.getDni());
 			stat.setString(2, a.getNombre());
 			stat.setDate(3, new Date(a.getFecha_nacimiento().getTime()));
@@ -55,8 +66,29 @@ public class MySQLDatosDAO implements DatosDAO {
 	}
 
 	@Override
-	public void modificar(Datos a) {
-		// TODO Auto-generated method stub
+	public void modificar(Datos a) throws DAOException {
+		PreparedStatement stat = null;
+		try {
+			stat = DatabaseConnection.connect().prepareStatement(UPDATE);
+			stat.setString(1, a.getDni());
+			stat.setString(2, a.getNombre());
+			stat.setDate(3, new Date(a.getFecha_nacimiento().getTime()));
+			stat.setDouble(4, a.getRenta_anual());
+			stat.setInt(5, a.getNumero_miembros_familiares());
+			if (stat.executeUpdate() == 0) {
+				throw new DAOException("Puede que no se haya guardado");
+			}
+		} catch (SQLException e) {
+			throw new DAOException("Error sql", e);
+		} finally {
+			if (stat != null) {
+				try {
+					stat.close();
+				} catch (SQLException e) {
+					throw new DAOException("Error cerrando conexion", e);
+				}
+			}
+		}
 
 	}
 
@@ -101,9 +133,9 @@ public class MySQLDatosDAO implements DatosDAO {
 		ResultSet rs = null;
 		List<Datos> datos = new ArrayList<>();
 		try {
-			stat = conn.prepareStatement(GETALL);
+			stat = DatabaseConnection.connect().prepareStatement(GETALL);
 			rs = stat.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				datos.add(convertir(rs));
 			}
 		} catch (SQLException e) {
@@ -165,25 +197,5 @@ public class MySQLDatosDAO implements DatosDAO {
 
 		return datos;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

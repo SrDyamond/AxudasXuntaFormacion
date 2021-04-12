@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.fp.connection.DatabaseConnection;
 import com.fp.dao.AyudaCuantiaDAO;
 import com.fp.dao.AyudasXuntaDAO;
@@ -15,23 +17,15 @@ import com.fp.dao.SolicitudLibrosDAO;
 import com.fp.exceptions.DAOException;
 import com.fp.modelo.Datos;
 
-public class MySQLDaoManager extends DatabaseConnection implements DAOManager {
-	
+public class MySQLDaoManager implements DAOManager {
+
 	private Connection conn;
-	
+
 	private DatosDAO datos = null;
-	private AyudaCuantiaDAO ayudaCuantia= null;
-	private AyudasXuntaDAO ayudasXunta= null;
-	private SolicitudDependenciasDAO solicitudDependencias= null;
-	private SolicitudLibrosDAO solicitudLibros= null;
-	
-	
-	
-	public MySQLDaoManager(String username, String password, String database) throws SQLException {
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xunta_galicia_axudas", "root", "3270Clb20616!");
-	}
-	
-	
+	private AyudaCuantiaDAO ayudaCuantia = null;
+	private AyudasXuntaDAO ayudasXunta = null;
+	private SolicitudDependenciasDAO solicitudDependencias = null;
+	private SolicitudLibrosDAO solicitudLibros = null;
 
 
 	@Override
@@ -42,7 +36,6 @@ public class MySQLDaoManager extends DatabaseConnection implements DAOManager {
 		return datos;
 	}
 
-
 	@Override
 	public AyudaCuantiaDAO getAyudaCuantiaDAO() {
 		if (ayudaCuantia == null) {
@@ -50,7 +43,6 @@ public class MySQLDaoManager extends DatabaseConnection implements DAOManager {
 		}
 		return ayudaCuantia;
 	}
-
 
 	@Override
 	public AyudasXuntaDAO getAyudasXuntaDAO() {
@@ -60,7 +52,6 @@ public class MySQLDaoManager extends DatabaseConnection implements DAOManager {
 		return ayudasXunta;
 	}
 
-
 	@Override
 	public SolicitudDependenciasDAO getSolicitudDependeciasDAO() {
 		if (solicitudDependencias == null) {
@@ -69,7 +60,6 @@ public class MySQLDaoManager extends DatabaseConnection implements DAOManager {
 		return solicitudDependencias;
 	}
 
-
 	@Override
 	public SolicitudLibrosDAO getSolicitudLibrosDAO() {
 		if (solicitudLibros == null) {
@@ -77,36 +67,4 @@ public class MySQLDaoManager extends DatabaseConnection implements DAOManager {
 		}
 		return solicitudLibros;
 	}
-	
-	public static void main(String[] args) throws SQLException, DAOException {
-		MySQLDaoManager man = new MySQLDaoManager("jdbc:mysql://localhost:3306/xunta_galicia_axudas", "root", "3270Clb20616!");
-		List<Datos> datos = man.getDatosDAO().obtener_todos();
-		System.out.println(datos);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
