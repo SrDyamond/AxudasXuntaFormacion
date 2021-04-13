@@ -2,13 +2,12 @@ package com.fp.mysql.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.Logger;
+import org.apache.log4j.*;
 
 import com.fp.connection.DatabaseConnection;
 import com.fp.dao.DatosDAO;
@@ -22,7 +21,7 @@ public class MySQLDatosDAO implements DatosDAO {
 	final String DELETE = "DELETE FROM datos_solicitante WHERE dni = ?";
 	final String GETALL = "SELECT dni, nombre, fecha_nacimiento, renta_anual, numero_miembros_familiares FROM datos_solicitante";
 	final String GETONE = "SELECT dni, nombre, fecha_nacimiento, renta_anual, numero_miembros_familiares FROM datos_solicitante WHERE dni = ?";
-	//private static final Logger logger = Logger.getLogger(MySQLDatosDAO.class);
+	private static final Logger logger = Logger.getLogger(MySQLDatosDAO.class);
 
 	private Connection conn;
 	
@@ -53,12 +52,14 @@ public class MySQLDatosDAO implements DatosDAO {
 				throw new DAOException("Puede que no se haya guardado");
 			}
 		} catch (SQLException e) {
+			logger.error(e);
 			throw new DAOException("Error sql", e);
 		} finally {
 			if (stat != null) {
 				try {
 					stat.close();
 				} catch (SQLException e) {
+					logger.error(e);
 					throw new DAOException("Error cerrando conexion", e);
 				}
 			}
@@ -79,12 +80,14 @@ public class MySQLDatosDAO implements DatosDAO {
 				throw new DAOException("Puede que no se haya guardado");
 			}
 		} catch (SQLException e) {
+			logger.error(e);
 			throw new DAOException("Error sql", e);
 		} finally {
 			if (stat != null) {
 				try {
 					stat.close();
 				} catch (SQLException e) {
+					logger.error(e);
 					throw new DAOException("Error cerrando conexion", e);
 				}
 			}
@@ -99,15 +102,17 @@ public class MySQLDatosDAO implements DatosDAO {
 			stat = conn.prepareStatement(DELETE);
 			stat.setString(1, a.getDni());
 			if (stat.executeUpdate() == 0) {
-				throw new DAOException("Puede que no se haya guardado");
+				throw new DAOException("Puede que no se haya borrado");
 			}
 		} catch (SQLException e) {
+			logger.error(e);
 			throw new DAOException("Error sql", e);
 		} finally {
 			if (stat != null) {
 				try {
 					stat.close();
 				} catch (SQLException e) {
+					logger.error(e);
 					throw new DAOException("Error cerrando conexion", e);
 				}
 			}
@@ -139,12 +144,14 @@ public class MySQLDatosDAO implements DatosDAO {
 				datos.add(convertir(rs));
 			}
 		} catch (SQLException e) {
+			logger.error(e);
 			throw new DAOException("Error sql", e);
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
+					logger.error(e);
 					throw new DAOException("Error cerrando conexion", e);
 				}
 			}
@@ -152,6 +159,7 @@ public class MySQLDatosDAO implements DatosDAO {
 				try {
 					stat.close();
 				} catch (SQLException e) {
+					logger.error(e);
 					throw new DAOException("Error cerrando conexion", e);
 				}
 			}
@@ -173,16 +181,15 @@ public class MySQLDatosDAO implements DatosDAO {
 			} else {
 				throw new DAOException("No se ha encontrado ese registro");
 			}
-			if (stat.executeUpdate() == 0) {
-				throw new DAOException("Puede que no se haya guardado");
-			}
 		} catch (SQLException e) {
+			logger.error(e);
 			throw new DAOException("Error sql", e);
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
+					logger.error(e);
 					throw new DAOException("Error cerrando conexion", e);
 				}
 			}
@@ -190,6 +197,7 @@ public class MySQLDatosDAO implements DatosDAO {
 				try {
 					stat.close();
 				} catch (SQLException e) {
+					logger.error(e);
 					throw new DAOException("Error cerrando conexion", e);
 				}
 			}
