@@ -20,7 +20,7 @@ public class DatabaseConnection {
 	// init connection object
 	private Connection connection;
 	// init properties object
-	private Properties properties;
+	//private Properties properties;
 
 	Properties config = new Properties();
 
@@ -94,6 +94,8 @@ public class DatabaseConnection {
 			try {
 				connection.close();
 				connection = null;
+				System.out.println("BD cerrada");
+				logger.info("Conexion cerrada");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

@@ -164,6 +164,7 @@ public class MySQLDatosDAO implements DatosDAO {
 				}
 			}
 		}
+		DatabaseConnection.disconnect();
 		return datos;
 	}
 
