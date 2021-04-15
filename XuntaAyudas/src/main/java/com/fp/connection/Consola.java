@@ -1,5 +1,6 @@
 package com.fp.connection;
 
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import org.apache.log4j.*;
@@ -16,6 +17,15 @@ public class Consola {
 		List<Datos> datos = a.obtener_todos();
 		System.out.println(datos);
 		logger.debug(datos);
+	}
+	
+	public void getStringForJSPPage() throws DAOException {
+		MySQLDatosDAO a = new MySQLDatosDAO();
+		List<Datos> datos = a.obtener_todos();
+		System.out.println(datos);
+		logger.debug(datos);
+		
+		
 	}
 
 }

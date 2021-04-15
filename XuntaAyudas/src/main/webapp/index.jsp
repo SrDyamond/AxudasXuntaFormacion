@@ -5,6 +5,8 @@
 <title>Home Page</title>
 </head>
 <body>
-<h2>Welcome to Our Application</h2>
+	<center>
+	<h2>Bienvenido a la pagina de formacion de Ayudas Xunta de Indra</h2>
+	</center>
 </body>
 </html>

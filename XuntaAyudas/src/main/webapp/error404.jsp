@@ -10,6 +10,7 @@
 <body>
     <center>
         <h1>Sorry, the page you requested were not found.</h1>
+        <h2>404 Error - Page Not Found</h2>
     </center>
 </body>
 </html>
