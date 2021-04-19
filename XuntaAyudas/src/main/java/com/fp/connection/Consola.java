@@ -11,7 +11,7 @@ import com.fp.mysql.dao.MySQLDatosDAO;
 
 public class Consola {
 	private static final Logger logger = Logger.getLogger(Consola.class);
-	public static void main(String[] args) throws SQLException, DAOException {
+	public static void main(String[] args) throws SQLException, DAOException, ClassNotFoundException {
 		
 		MySQLDatosDAO a = new MySQLDatosDAO();
 		List<Datos> datos = a.obtener_todos();
@@ -19,11 +19,12 @@ public class Consola {
 		logger.debug(datos);
 	}
 	
-	public void getStringForJSPPage() throws DAOException {
+	public static List<Datos> getStringForJSPPage() throws DAOException, ClassNotFoundException {
 		MySQLDatosDAO a = new MySQLDatosDAO();
 		List<Datos> datos = a.obtener_todos();
 		System.out.println(datos);
 		logger.debug(datos);
+		return datos;
 		
 		
 	}

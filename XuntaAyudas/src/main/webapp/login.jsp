@@ -20,6 +20,10 @@
          </form>
      <body style="background-color:DodgerBlue">
      <h1 style="text-align:center;">XUNTA DE GALICIA AXUDAS</h1>
+    <div align="center">
+        <img src="descarga.png" align="center"
+            title="Bandera de Galicia">
+    </div>
      </body>
       <hr>
       <body>
@@ -27,11 +31,29 @@
       		<br>
             <h3><fmt:message key="texto" /></h3>
             <br>
-           	<button><fmt:message key="obtenerDatos" /></button>
-        </p>
-        <form action="Principal" method="get">
-        <button name="button" onclick=submit >Ayudas</button>
-   		</form>
+           	<form action="GetDatos" method="get">
+           	<button name="button" onclick=submit ><fmt:message key="obtenerDatos" /></button>
+           	<table border="1" cellpadding="2" cellspacing="2" border-color="white">
+		<tr>
+			<th>DNI</th>
+			<th>Nombre</th>
+			<th>Fecha Nacimiento</th>
+			<th>Renta Anual</th>
+			<th>Miembros Familiares</th>
+		</tr>
+        <c:forEach var="dato" items="${datos }">
+			<tr>
+				<td>${dato.dni }</td>
+				<td>${dato.nombre }</td>
+				<td>${dato.fecha_nacimiento }</td>
+				<td>${dato.renta_anual }</td>
+				<td>${dato.numero_miembros_familiares}</td>
+			</tr>
+		</c:forEach>
+			</table>
+           	</form>
+        
+       
          <!-- 
          <form method="post">
              <label for="username"><fmt:message key="login.label.username" />:</label>

@@ -74,11 +74,12 @@ public class DatabaseConnection {
 	}
 
 	// connect database
-	public Connection connect() {
+	public Connection connect() throws ClassNotFoundException {
 		// loadConfig();
 		loadProperties("config.properties");
 		if (connection == null) {
 			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection(config.getProperty("DATABASE_URL"),
 						config.getProperty("USERNAME"), config.getProperty("PASSWORD"));
 			} catch (SQLException e) {

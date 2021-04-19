@@ -38,7 +38,7 @@ public class MySQLDatosDAO implements DatosDAO {
 	
 
 	@Override
-	public void insertar(Datos a) throws DAOException {
+	public void insertar(Datos a) throws DAOException, ClassNotFoundException {
 
 		PreparedStatement stat = null;
 		try {
@@ -67,7 +67,7 @@ public class MySQLDatosDAO implements DatosDAO {
 	}
 
 	@Override
-	public void modificar(Datos a) throws DAOException {
+	public void modificar(Datos a) throws DAOException, ClassNotFoundException {
 		PreparedStatement stat = null;
 		try {
 			stat = DatabaseConnection.connect().prepareStatement(UPDATE);
@@ -133,7 +133,7 @@ public class MySQLDatosDAO implements DatosDAO {
 	}
 
 	@Override
-	public List<Datos> obtener_todos() throws DAOException {
+	public List<Datos> obtener_todos() throws DAOException, ClassNotFoundException {
 		PreparedStatement stat = null;
 		ResultSet rs = null;
 		List<Datos> datos = new ArrayList<>();

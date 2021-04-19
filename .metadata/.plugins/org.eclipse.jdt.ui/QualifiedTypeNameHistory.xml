@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.beans.Statement"/>
     <fullyQualifiedTypeName name="com.fp.modelo.Datos_solicitante"/>
-    <fullyQualifiedTypeName name="java.awt.List"/>
     <fullyQualifiedTypeName name="com.fp.modelo.Ayuda_cuantia"/>
     <fullyQualifiedTypeName name="com.fp.modelo.Solicitud_dependencias"/>
     <fullyQualifiedTypeName name="com.fp.modelo.Solicitud_libros"/>
@@ -17,7 +16,6 @@
     <fullyQualifiedTypeName name="com.fp.dao.SolicitudDependenciasDAO"/>
     <fullyQualifiedTypeName name="com.fp.dao.SolicitudLibrosDAO"/>
     <fullyQualifiedTypeName name="com.fp.dao.DAOManager"/>
-    <fullyQualifiedTypeName name="com.fp.modelo.Datos"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
@@ -40,5 +38,9 @@
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="com.fp.connection.Consola"/>
+    <fullyQualifiedTypeName name="com.fp.mysql.dao.MySQLDatosDAO"/>
+    <fullyQualifiedTypeName name="com.fp.modelo.Datos"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 </qualifiedTypeNameHistroy>
